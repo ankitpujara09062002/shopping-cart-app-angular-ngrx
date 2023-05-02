@@ -1,0 +1,38 @@
+<div class="container mb-8 mb-4">
+    <div class="row justify-content-start">
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-lg-6" *ngFor="let data of cartData">
+                    <div class="card my-2">
+                        <div class="card-body">
+                            <img src="{{data.img}}">
+                            <h5 class="product-title">
+                                {{data.name}}
+                            </h5>
+                            <p class="card-text">{{data.price | currency: 'USD'}}</p>
+
+                            <button class="btn btn-danger" (click)="removeItem(data)">Remove From cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 my-2">
+            <div class="alert alert-success" role="alert" *ngIf="orderPlaced">
+                Your Order has been placed successfully!
+            </div>
+            <div class="alert alert-warning" role="alert" *ngIf="!orderPlaced && cartData.length === 0">
+                Please add a product to cart to proceed
+            </div>
+            <div>
+                <p>
+                    Total Products: {{cartData.length}}
+                </p>
+
+                <hr>
+                <button class="btn btn-primary" (click)="placeOrder()"> Place order </button>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-sm-8" *ngFor="let data of shoppingData;">
+            <div class="card my-2">
+                <img src="{{data.img}}" alt="image" (click)="productDetails(data)"/>
+                <div class="card-body">
+                    <h5 class="card-title">{{data.name}}</h5>
+                    <p class="card-body p-0">{{data.price | currency: 'USD'}}</p>
+                    <button class="btn btn-primary float-right" (click)="addToCart(data)">Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
